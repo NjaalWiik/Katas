@@ -8,7 +8,8 @@ function isValidSubsequence(array, sequence) {
     for (let j = counter; j < array.length; j++) {
       if (sequence[i] === array[j]) {
         valArray.push(sequence[i]);
-        counter = j;
+        counter = j + 1;
+        break;
       }
     }
   }
