@@ -37,6 +37,7 @@ const titleTag = (title, tags) => {
   const relevantTags = [];
   let counter = 0;
   titleArray = title.split(' ').map(v => v.toLowerCase());
+  const tagsArray = tags.map(v => v.toLowerCase());
 
   titleArray.map(element => {
     if (counter > 44) return false;
@@ -44,9 +45,11 @@ const titleTag = (title, tags) => {
     counter += element.length;
   });
 
-  const tagsArray = tags.map(v => v.toLowerCase());
+  const intersection = relevantTags.filter(element =>
+    tagsArray.includes(element)
+  );
 
-  return relevantTags;
+  return intersection.length;
 };
 
 titleTag(testTitle, testTag);
