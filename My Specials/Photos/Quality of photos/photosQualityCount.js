@@ -44,17 +44,12 @@ const testData = [
 ];
 
 const photosQualityCount = array => {
-  const lowResImages = [];
-  array.forEach((item, index) => {
-    if (item.full_height < 2000 || item.full_width < 2000) {
-      lowResImages.push({
-        index,
-        height: item.full_height,
-        width: item.full_width
-      });
-    }
-  });
-  return lowResImages;
+  let counter = 0;
+  array.forEach(
+    element => element.full_height < 2000 || element.full_width < 2000,
+    counter++
+  );
+  return counter;
 };
 
 photosQualityCount(testData);
