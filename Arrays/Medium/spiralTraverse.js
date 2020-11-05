@@ -11,13 +11,25 @@ function spiralTraverse(array) {
       result.push(array[startCol][i]);
     }
 
+    for (let i = startRow; i <= endRow; i++) {
+      result.push(array[i][endCol]);
+    }
+
+    for (let i = endCol - 1; i >= startCol; i--) {
+      result.push(array[endRow][i]);
+    }
+
+    for (let i = endRow - 1; i >= startRow; i--) {
+      result.push(array[i][startCol]);
+    }
+
     startCol++;
     endCol--;
     startRow++;
     endRow--;
   }
 
-  console.log(result);
+  return result;
 }
 
 const testArray = [
